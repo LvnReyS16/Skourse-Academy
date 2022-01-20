@@ -25,7 +25,6 @@ numbersEl.forEach((number) => {
     dis2Num += e.target.innerText;
     display2El.innerText = dis2Num;
   
-    // console.log();
   });
 });
 
@@ -47,13 +46,19 @@ operationEl.forEach((operation) => {
 });
 
 percent.addEventListener("click", (e)=>{
+  console.log(dis2Num);
     click++
     const operationName = e.target.innerText;
+    if(dis2Num == ""){
+      display2El.innerText = 0;
+      return
+    }
       if(click % 2){
         dis2Num = (parseFloat(dis2Num))/100;
         display2El.innerText = dis2Num;
           
-      }else {
+      } 
+      else {
       dis2Num = (parseFloat(dis2Num))*100;
       display2El.innerText = dis2Num;
       } 
@@ -63,6 +68,10 @@ percent.addEventListener("click", (e)=>{
 plusMinus.addEventListener("click", (e)=>{
     click++
     const operationName = e.target.innerText;
+    if(dis2Num == ""){
+      display2El.innerText = 0;
+      return
+    }
       if(click % 2){
         dis2Num = -(parseFloat(dis2Num));
         display2El.innerText = dis2Num;
@@ -95,7 +104,7 @@ function mathOperation() {
     result = parseFloat(result) % parseFloat(dis2Num);
   }
 }
-// operation();
+
 
 equalEl.addEventListener("click", () => {
   if (!dis2Num || !dis1Num) return;
@@ -137,12 +146,12 @@ window.addEventListener("keydown", (e) => {
     e.key === "."
   ) {
     clickButtonEl(e.key);
-    // console.log(e.key)
+    
   } else if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "%") {
     clickOperation(e.key);
   } else if (e.key === "*") {
     clickOperation("x");
-    // console.log(e.key)
+    
   } else if (e.key == "Enter" || e.key === "=") {
     clickEqual();
   }
