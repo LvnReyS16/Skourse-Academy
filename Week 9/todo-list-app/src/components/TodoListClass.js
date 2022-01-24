@@ -64,11 +64,11 @@ class Todolistclass extends Component {
 
     render() {
         return (
-            <div>
+            <>
                 <h1>Wazz the Plan?</h1>
                 <Todoformclass onSubmit={this.addTodo} />
                 <Todoclass updateTodo={this.updateTodo} removeTodo={this.removeTodo} todos={this.state.todos} completeTodo={this.completeTodo}/>
-            </div>
+            </>
         );
     }
 }

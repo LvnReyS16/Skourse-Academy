@@ -5,7 +5,7 @@ import Todoformclass from './components/TodoFormClass';
 import Todolistclass from './components/TodoListClass';
 function App() {
   return (
-    <div className="t<odo-app">
+    <div className="todo-app">
       
       <Todolistclass/>
     </div>
