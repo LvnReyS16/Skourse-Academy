@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
-import TodoForm from './TodoForm';
-import Todolistclass from './TodoListClass';
+import Todoformclass from './TodoFormClass';
 
 class Todoclass extends Component {
 
@@ -17,6 +16,7 @@ class Todoclass extends Component {
     }
 
     submitUpdate = value =>{
+        
         this.props.updateTodo(this.state.id, value)
 
         this.setState({
@@ -31,10 +31,10 @@ class Todoclass extends Component {
     render()
      {
         if(this.state.id){
-            return <TodoForm edit={this.state} onSubmit={this.submitUpdate}/>
+            return <Todoformclass edit={this.state} onSubmit={this.submitUpdate}/>
         }
         
-        return this.props.todos.map((todo, index) => (
+        return this.props.todos?.map((todo, index) => (
             <div className={todo.isComplete ? 'todo-row complete': 'rodo-row'} key={index}>
 
                 <div key={todo.id} onClick={()=> this.props.completeTodo(todo.id)}>

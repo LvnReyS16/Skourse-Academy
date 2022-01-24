@@ -27,7 +27,7 @@ class Todoformclass extends Component {
             id: Math.floor(Math.random()*1000),
             text : this.state.input
         })
-
+        console.log(this.state.input);
         this.setState({
             input: '',
         })

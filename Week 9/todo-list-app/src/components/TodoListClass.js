@@ -16,7 +16,6 @@ class Todolistclass extends Component {
         if(!todo.text || /^\s*$/.test(todo.text)){
             return
         }
-
         const newTodos = [todo,...this.state.todos];
    
         this.setState({
@@ -30,18 +29,18 @@ class Todolistclass extends Component {
         if(!newValue.text || /^\s*$/.test(newValue.text)){
             return
         }
+
+            const editTodo =  this.state.todos.map(item =>(item.id === todoId ? newValue : item));
+            console.log(editTodo);
+
             this.setState({
-            todos : prev =>
-            prev.map(item =>(
-                item.id === todoId ? newValue : item))
-            
-        }
-        );
+                todos : editTodo
+            })
        
 
 }
 
-    remoteTodo = id =>{
+    removeTodo = id =>{
         const removeArr = [...this.state.todos].filter(todo => todo.id !==id)
 
         this.setState({
@@ -68,7 +67,7 @@ class Todolistclass extends Component {
             <div>
                 <h1>Wazz the Plan?</h1>
                 <Todoformclass onSubmit={this.addTodo} />
-                <Todoclass updateTodo={this.updateTodo} removeTodo={this.remoteTodo} todos={this.state.todos} completeTodo={this.completeTodo}/>
+                <Todoclass updateTodo={this.updateTodo} removeTodo={this.removeTodo} todos={this.state.todos} completeTodo={this.completeTodo}/>
             </div>
         );
     }
